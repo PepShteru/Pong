@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8yk46y6jaynk"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_8wdu8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y0p01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llgcq"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbupn"]
+size = Vector2(23.9542, 24)
+
+[node name="ball" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_8wdu8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(24.125, 24)
+texture = SubResource("PlaceholderTexture2D_y0p01")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_llgcq")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(40, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-40, 0)
+scale = Vector2(1.00576, 1)
+shape = SubResource("RectangleShape2D_sbupn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+color = Color(1, 0.505882, 0, 1)
